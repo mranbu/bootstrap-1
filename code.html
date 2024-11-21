@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <div class="container mt-4">
+        <div class="row mt-4">
+            
+            <div class="col">
+                <h2>Enter two numbers:</h2>
+                <input type="number" name="num1" id="start" placeholder="start">
+                <input type="number" name="num2" id="end" placeholder="end"  ><br>
+
+                 <button  class="btn btn-primary" onclick="printRange()">Show Range</button></div>
+
+        </div>
+
+
+                 <div class=" row mt-4">
+                    <h2>multiplication:</h2>
+                    <input type ="number" id="multiplication" placeholder="Enter the number" class="from control">
+                    <button class="btn btn-primary" onclick="multiple()">show</button>
+        
+                </div>
+        
+        </div>
+         
+ <p id="result"></p>
+
+    <script>
+        function printRange() {
+            let start = document.getElementById('start').value;
+            let end = document.getElementById('end').value;
+            let result = "";
+
+            for (let num = start; num <= end; num++) {
+                console.log(num);
+                result += num + "<br>";
+            }
+            document.getElementById('result').innerHTML = result;
+
+        }
+       
+        
+function multiple(){
+
+    let multiple= Number(document.getElementById( 'multiplication').value);
+    let result = "";
+
+    for (let num= 1; num <= 10; num++) {
+        let a = num *multiple;
+        result +=multiple+"*" + num + '=' + a +'<br>';
+        }
+
+                document.getElementById('result').innerHTML = result;
+}
+ </script>
+
+<div class="row mt-4">
+    <div class="col">Neutrolize to single digit</div>
+    <div class="col">
+        <input type="number" id="neutroNum" name="neutroNum" class="form-control"/>
+        <button type="button" class="btn btn-primary mt-2" onclick="neutrolizeNum()">Neutrolize</button>
+        <p id="neutroResult"></p>
+        <script>
+            function neutrolizeNum(){
+                let num = Number(document.getElementById('neutroNum').value);
+                let result = "";
+                let moduVal = 0;
+                
+                //51 => 5 + 1 => 6
+                // moduVal = num % 10;  // 1
+                // num = Math.floor(num /10); //5
+                // moduVal = moduVal + (num % 10); // 1 + 5
+                // num = Math.floor(num /10); //0
+                // result = moduVal;
+
+                while(num != 0){
+                    console.log("Before Num : " +num + " Modu :" + moduVal);
+                    moduVal += num % 10;
+                    num = Math.floor(num /10);
+                    console.log("After Num : " +num + " Modu :" + moduVal);
+                    if(num == 0 && moduVal > 9){                                
+                        num = moduVal;
+                        moduVal = 0;
+                    }
+                }
+
+                document.getElementById('neutroResult').innerHTML = result;
+
+            }
+        </script>
+
+<div class="row mt-4">
+    <div class="col">Reverse a number using while loop</div>
+    <div class="col">
+        <input type="number" id="reverse" placeholder="Enter the number"><br>
+        <button class="btn btn-warning" onclick="RevNumber()">Reverse the Number</button>
+
+        <p id="RevResult"></p>
+        <script>
+
+             function RevNumber(){
+
+                let number = Number(document.getElementById('reverse').value);
+                let result = 0;
+                while(number > 0){
+                    let lastDigit = number % 10;
+                    result = (result * 10) + lastDigit;
+                 number = (number - lastDigit) / 10;
+            
+                }
+                document.getElementById('RevResult').innerHTML = result;
+             }
+       </script>
+
+
+     </div>
+     </div>
+</body>
+</html>

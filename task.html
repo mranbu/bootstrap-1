@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row mt-4">
+        <div class="col"> 5 multiplication table</div>
+        <div class="col">
+            <input type="number" id="Multiple" placeholder=" enter the number">
+            <button onclick="MultipleTable()" class="btn btn-info"> show range </button>
+            <p id="forMultiResult"></p>
+            <script>
+                function MultipleTable() {
+                    let Multiple = Number(document.getElementById('Multiple').value);
+                    let result = "";
+                    
+                    for (let num = 1; num <= 10; num++){
+                        result += '5*' + num + '=' + (5*num) + '<br>';
+
+                    }
+
+                    
+                    document.getElementById('forMultiResult').innerHTML = result;
+                }
+                
+            </script>
+        </div>
+    </div>
+</body>
+</html>

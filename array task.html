@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>pop ()</h1>
+            <p id="Pop1"></p>
+            <p id="Pop2"></p>
+            <p id="Pop3"></p>
+
+            <script>
+                let numbers = [1, 2, 3, 4, 5];
+
+                document.getElementById("Pop1").textContent = "Original Array: " + numbers.join(", ");
+
+                let removedEle = numbers.pop();
+
+                document.getElementById("Pop2").textContent = "Modified Array: " + numbers.join(", ");
+                document.getElementById("Pop3").textContent = "Removed Element: " + removedEle;
+            </script>
+
+
+        </div>
+        <div class="row">
+            <h1>Shift ()</h1>
+            <p id="ShiftEx1"></p>
+            <p id="ShiftEx2"></p>
+            <p id="ShiftEx3"></p>
+            <p id="ShiftEx4-msg"></p>
+
+            <script>
+
+                let number1 = [1, 2, 3, 4, 5];
+
+
+                document.getElementById("ShiftEx1").textContent = "Original Array: " + number1.join(", ");
+
+
+                if (number1.length > 3) {
+
+                    let removedEle = number1.shift();
+
+                    document.getElementById("ShiftEx2").textContent = "Modified Array: " + number1.join(", ");
+                    document.getElementById("ShiftEx3").textContent = "Removed Element: " + removedEle;
+                    document.getElementById("ShiftEx4-msg").textContent = "Condition Met: Element was removed";
+                } else {
+                    document.getElementById("ShiftEx4-msg").textContent = "Condition Not Me";
+                }
+            </script>
+        </div>
+        <div class="row">
+            <h1> unshift() on Array</h1>
+
+            <button onclick="UnShiftNum()" class="col-lg-3 btn btn-outline-dark">FilterEvenNum</button>
+
+            <div class="output">
+                <p><strong>Original Array after unshift():</strong> <span id="OgArray1"></span></p>
+                <p><strong>Filtered Even Numbers:</strong> <span id="OgArray2"></span></p>
+            </div>
+
+            <script>
+                function UnShiftNum() {
+                    // Original array of numbers
+                    let number2 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                    // Use unshift() to add a new element to the beginning of the array
+                    number2.unshift(1);
+                    console.log("Array after unshift():", number2);
+
+
+                    let evenNum = [];
+
+                    for (let i = 0; i < number2.length; i++) {
+
+                        if (number2[i] % 2 === 0) {
+                            evenNum.push(number2[i]);
+                        }
+                    }
+
+                    document.getElementById('OgArray1').textContent = number2.join(', ');
+
+
+                    document.getElementById('OgArray2').textContent = evenNum.join(', ');
+                }
+            </script>
+
+        </div>
+        <div class="row">
+            <h1>Array Includes </h1>
+
+            <button onclick="checkNumber()" class="col-lg-3 btn btn-outline-success">Check Number</button>
+            <input type="number" id="IncNum" placeholder="Enter a number" class="col-lg-3 mx-2">
+
+            <p id="result"></p>
+
+            <script>
+                // Creating an array of numbers in numerical order
+                const number3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                // Function to check if the number exists in the array
+                function checkNumber() {
+                    // Get the input value
+                    const IncNum = Number(document.getElementById("IncNum").value);
+
+
+                    if (isNaN(IncNum)) {
+                        document.getElementById("result").textContent = "Please enter a valid number.";
+                        return;
+                    }
+
+
+                    if (number3.includes(IncNum)) {
+                        document.getElementById("result").textContent = ${IncNum} is found in the array!;
+                    } else {
+                        document.getElementById("result").textContent = ${IncNum} is not in the array.;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>
